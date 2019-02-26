@@ -25,7 +25,7 @@ const fruit = new Fruit({
     review: "These thinghies are nice"
 })
 
-fruit.save()
+// fruit.save()
 
 /////////////////////////////////
 
@@ -76,10 +76,34 @@ Fruit.find(function (err, fruits) {
         console.log(err);
     } else {
         mongoose.connection.close()
-        console.log(fruits);
 
-        // fruits.forEach((fruit) => {
-        //     console.log(fruit.name);
-        // })
+        fruits.forEach((fruit) => {
+            console.log(fruit.name);
+        })
+    }
+})
+
+// Fruit.updateOne({
+//     _id: '5c74ffaadecabb188f0a8ebc'
+// }, {
+//     name: 'Peach'
+// }, function (err) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log('successfully updated the document!');
+
+//     }
+// })
+
+
+Fruit.deleteOne({
+    name: 'Peach'
+}, function (err) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log('successfully updated the document!');
+
     }
 })
